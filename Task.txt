@@ -1,0 +1,114 @@
+Theory:
+
+--Databases and tables: 
+
+//Create DB, Drop DB, Rename DB and Backup DB
+
+//Create Table, Drop Table, Alter Table, Rename table and Truncate table
+
+//Indexes
+
+//Data Types: 
+
+//String and Numeric data types
+
+//Boolean
+
+//Date and Time data types
+
+//Null Values
+
+//Constraints: 
+
+//Primary key 
+
+//Not Null, 
+//Unique, 
+//Check, 
+//Default, 
+Index, 
+//Auto Increment
+
+//Comments
+
+
+--Practical tasks:
+
+//Database orders_management
+
+//Description: Create a database called orders_management
+
+//Table customers 
+
+//Description: Create a customers table in orders_management db. Table should hold the following
+ information about customers:
+
+//Name - mandatory 
+
+//Email - mandatory and should be unique
+
+//Phone - mandatory and should be unique
+
+//Age - more than 18, if not set default value should be 99. 
+
+//Address
+
+//City
+
+//Postal code - a positive number 
+
+//Country
+
+//GDPR consent status - has the customer given GDPR consent or not. Mandatory field.
+
+//Customer profile status - is the profile still active. Mandatory field.
+
+//Date and time profile created - set by default when creating a new record. Mandatory field
+
+//--Date and time profile deactivated
+
+//--Reason for deactivation of profile
+
+//Notes - can hold very long notes on the customer.
+
+//Customers table should be optimized for querying by name, email or phone.
+
+
+--SQL scripts
+
+//Create scripts that:
+
+//Create orders_management database
+
+//Drop orders_management database
+
+Backup orders_management database with timestamp
+
+//Create customers table
+
+//Drop customers table
+
+//Truncate customers table
+
+//Scripts should be with comments.
+
+
+--Acceptance criteria:
+
+//As a QA Automation trainee, I want to gain knowledge of:
+
+//databases and tables in a relational database and how to  manage them
+
+how to create and use indexes and understand what problem do they solve
+
+what data types and constraints are available in SQL and how to use them 
+
+//how to write SQL scripts
+
+//how to design a database and use recommended naming strategies in SQL
+
+
+--------------
+//backup
+//indexes
+//age SMALLINT CHECK (age>=18) DEFAULT 99,
