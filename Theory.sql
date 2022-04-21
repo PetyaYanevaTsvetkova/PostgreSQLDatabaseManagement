@@ -1,20 +1,19 @@
 --Create Database
 CREATE DATABASE testdb;
 
-
 -- Drop Database
 DROP DATABASE IF EXISTS testdb;
-
 
 --Rename DB
 ALTER DATABASE testdb RENAME TO renamedb;
 
-
 --Backup DB
-pg_dump testdb > file_testdb.sql 
---ERROR:  syntax error at or near "pg_dump"
---LINE 1: pg_dump testdb > file_testdb.sql;
+BACKUP DATABASE databasename
+TO DISK = 'filepath';
 
+--full backup
+BACKUP DATABASE testDB
+TO DISK = 'D:\backups\testDB.bak';
 
 --Create Table
 CREATE TABLE [IF NOT EXISTS] table_name (
@@ -32,21 +31,11 @@ CREATE TABLE employee(
    SALARY         REAL
 );
 
-
 --Drop Table
 DROP TABLE employee;
 
-
---Alter Table/Reanme table
-ALTER TABLE company ADD isBGN boolean;
-
-ALTER TABLE company DROP COLUMN isbgn;
-
-ALTER TABLE company
-  RENAME TO company_new_name;
   
-  
---TRUNKATE table -> delete all data in the table 
+  --TRUNKATE table -> delete all data in the table 
 CREATE TABLE COMPANY(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
@@ -55,6 +44,18 @@ CREATE TABLE COMPANY(
    SALARY         REAL,
    JOIN_DATE	  DATE
 );
+
+--Delete from table - allows to delete existing records in a table,
+-- you can delete particular record pointed in where clause
+DELETE FROM table_name WHERE condition;
+
+--Alter Table/Reanme table
+ALTER TABLE company ADD isBGN boolean;
+
+ALTER TABLE company DROP COLUMN isbgn;
+
+ALTER TABLE company
+RENAME TO company_new_name;
 
 INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY,JOIN_DATE) 
 VALUES (1, 'Paul', 32, 'California', 20000.00,'2001-07-13');
@@ -69,8 +70,7 @@ INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY,JOIN_DATE)
 VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00, '2007-12-13' ), 
 (5, 'David', 27, 'Texas', 85000.00, '2007-12-13');
 
-TRUNCATE TABLE COMPANY;
-
+TRUNCATE TABLE COMPANY;  
 
 --DATES/CURRENT_DATE
 CREATE TABLE delivery(
@@ -93,23 +93,34 @@ on table_name (column_name);
 
 --index contains entries only for those table
 -- rows that satisfy the predicate
+--Single column index
 CREATE INDEX index_name
 ON table_name (column_name);
 
+--Multicolumn Indexes
+CREATE INDEX index_name
+ON table_name (column1_name, column2_name);
+
+--Unique Indexes -not allow any duplicate values to be inserted into the table
+CREATE UNIQUE INDEX index_name
+on table_name (column_name);
+
+--Partial Indexes
 CREATE INDEX index_name
 on table_name (conditional_expression);
 
+--Implicit Indexes
+--Implicit indexes are indexes that are automatically created
+ --by the database server when an object is created. Indexes
+-- are automatically created for primary key constraints and unique constraints.
+
+--Drop index
 DROP INDEX salary_index;
 
 --Indexes should not be used on small tables.
-
 --Tables that have frequent, large batch update or insert operations.
-
 --Indexes should not be used on columns that contain a high number of NULL values.
-
 --Columns that are frequently manipulated should not be indexed
-
-
 
 --NULL values
   SELECT  ID, NAME, AGE, ADDRESS, SALARY
@@ -124,9 +135,7 @@ DROP INDEX salary_index;
    SALARY         REAL
 ); 
 
-
 --Constraints:
-
 --NOT NULL Constraint − Ensures that a column cannot have NULL value.
   CREATE TABLE COMPANY(
    ID INT PRIMARY KEY     NOT NULL,
@@ -191,20 +200,6 @@ CREATE TABLE COMPANY(
    SALARY         REAL
 );
 
--- EXCLUSION Constraint − The EXCLUDE constraint 
--- ensures that if any two rows are compared on 
--- the specified column(s) or expression(s) using the 
--- specified operator(s), not all of these comparisons will return TRUE
-CREATE TABLE COMPANY7(
-   ID INT PRIMARY KEY     NOT NULL,
-   NAME           TEXT,
-   AGE            INT  ,
-   ADDRESS        CHAR(50),
-   SALARY         REAL,
-   EXCLUDE USING gist
-   (NAME WITH =,
-   AGE WITH <>)
-);
 
 --DROP CONSTRAINTS
 ALTER TABLE table_name DROP CONSTRAINT some_name;
@@ -225,6 +220,14 @@ FROM  COMPANY;
 
 DROP VIEW COMPANY_VIEW;
 
+--UPDATE
+UPDATE table_name
+SET column1 = value1, column2 = value2...., columnN = valueN
+WHERE [condition];
 
+--DON'T FORGET THE WHERE CLAUSE :))
+UPDATE COMPANY SET SALARY = 15000 WHERE ID = 3;
+
+UPDATE COMPANY SET ADDRESS = 'Texas', SALARY=20000
 
   

@@ -1,5 +1,6 @@
 CREATE DATABASE orders_management;
 
+DROP TABLE customer;
 
 CREATE TABLE customer (
 customer_id serial PRIMARY KEY  NOT NULL,
@@ -7,7 +8,7 @@ name VARCHAR(255) NOT NULL,
 email VARCHAR(255) UNIQUE NOT NULL,
 phone CHAR(13) UNIQUE NOT NULL,
 CONSTRAINT chk_phone CHECK (phone not like '%[^0-9]%'),
-age SMALLINT CHECK (age>=18) DEFAULT 99, 
+age SMALLINT DEFAULT 99 CHECK (age>=18) 
 address VARCHAR(255),
 city VARCHAR(255),
 postal_code INT CHECK (postal_code>0),
@@ -20,12 +21,6 @@ reason_for_deactivation VARCHAR(255),
 notes TEXT    
 );
  
- 
---date_profile_deactivated TIMESTAMP,
---set is_profile_active = false;
---set reason_for_deactivation = 'reason';
-
-
 TRUNCATE TABLE customer;
  
  
@@ -40,5 +35,50 @@ VALUES
  
  
 CREATE INDEX index_name
-on customer (name, email, phone);
+on customer (name);
 
+CREATE INDEX index_name
+on customer (email);
+
+CREATE INDEX index_name
+on customer (phone);
+
+--DEACTIVATE PROFILE
+UPDATE customer 
+SET 
+date_profile_deactivated = CURRENT_timestamp, 
+is_profile_active = FALSE, 
+reason_for_deactivation = 'INVALID PROFILE',
+date_profile_created = NULL
+WHERE customer_id = 4;
+
+--ACTIVATE PROFILE
+UPDATE customer 
+SET 
+date_profile_deactivated = NULL, 
+is_profile_active = TRUE, 
+reason_for_deactivation = NULL,
+date_profile_created = CURRENT_timestamp
+WHERE customer_id = 4;
+
+--ADD NOTES
+UPDATE customer 
+SET 
+notes = 'Lorem Ipsum is simply dummy text 
+of the printing and typesetting industry.
+ Lorem Ipsum has been the industrys standard
+ dummy text ever since the 1500s, when an 
+ unknown printer took a galley of type and 
+ scrambled it to make a type specimen book. 
+ It has survived not only five centuries, 
+ but also the leap into electronic typesetting, 
+ remaining essentially unchanged. It was 
+ popularised in the 1960s with the release 
+ of Letraset sheets containing Lorem Ipsum 
+ passages, and more recently with desktop 
+ publishing software like Aldus PageMaker 
+ including versions of Lorem Ipsum.'
+WHERE customer_id = 4;
+
+BACKUP DATABASE databasename
+TO DISK = 'D:\Training\DB\SQL_Database management_data_types_constraints\backupDB';

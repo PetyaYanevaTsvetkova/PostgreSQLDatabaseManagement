@@ -26,7 +26,7 @@ Theory:
 //Unique, 
 //Check, 
 //Default, 
-Index, 
+//Index, 
 //Auto Increment
 
 //Comments
@@ -82,7 +82,7 @@ Index,
 
 //Drop orders_management database
 
-Backup orders_management database with timestamp
+---------------------------Backup orders_management database with timestamp
 
 //Create customers table
 
@@ -99,16 +99,13 @@ Backup orders_management database with timestamp
 
 //databases and tables in a relational database and how to  manage them
 
-how to create and use indexes and understand what problem do they solve
+//how to create and use indexes and understand what problem do they solve
 
-what data types and constraints are available in SQL and how to use them 
+//what data types and constraints are available in SQL and how to use them 
 
 //how to write SQL scripts
 
 //how to design a database and use recommended naming strategies in SQL
 
 
---------------
-//backup
-//indexes
-//age SMALLINT CHECK (age>=18) DEFAULT 99,
+
