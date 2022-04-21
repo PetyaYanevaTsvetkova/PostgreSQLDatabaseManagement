@@ -37,10 +37,10 @@ VALUES
 CREATE INDEX index_name
 on customer (name);
 
-CREATE INDEX index_name
+CREATE INDEX index_email
 on customer (email);
 
-CREATE INDEX index_name
+CREATE INDEX index_phone
 on customer (phone);
 
 --DEACTIVATE PROFILE
