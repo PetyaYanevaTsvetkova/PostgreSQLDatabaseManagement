@@ -4,13 +4,13 @@ PostgreSQL: Database management, data types and constraints
 #Project Description:
 Theoretical examples and practical task for basic scripts for database management, data types and constraints
 Databases and tables
- - Create
- - Drop
- - Rename DB
- - Backup DB
- - Alter Table
- - Rename table
- - Truncate table
+ * Create
+ * Drop
+ * Rename DB
+ * Backup DB
+ * Alter Table
+ * Rename table
+ * Truncate table
 Indexes
 Data Types: String and Numeric data types; Boolean; Date and Time data types
 Null Values
@@ -26,8 +26,8 @@ Difference between Drop, Delete and Trunkate
 	README file
 
 #How to Install and Run the Project:
- - Docker needed
- - PosgreSQL client needed
+ * Docker needed
+ * PosgreSQL client needed
  
 #How to Use the Project:
 You need to execute the scripts in PostgreSQL client environment
