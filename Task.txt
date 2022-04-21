@@ -82,7 +82,7 @@ Theory:
 
 //Drop orders_management database
 
----------------------------Backup orders_management database with timestamp
+//Backup orders_management database with timestamp
 
 //Create customers table
 
@@ -97,7 +97,7 @@ Theory:
 
 //As a QA Automation trainee, I want to gain knowledge of:
 
-//databases and tables in a relational database and how to  manage them
+//databases and tables in a relational database and how to manage them
 
 //how to create and use indexes and understand what problem do they solve
 
