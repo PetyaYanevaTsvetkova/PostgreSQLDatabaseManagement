@@ -11,6 +11,9 @@ ALTER DATABASE testdb RENAME TO renamedb;
 BACKUP DATABASE databasename
 TO DISK = 'filepath';
 
+BACKUP DATABASE databasename
+TO DISK = 'D:\Training\DB\SQL_Database management_data_types_constraints\backupDB';
+
 --full backup
 BACKUP DATABASE testDB
 TO DISK = 'D:\backups\testDB.bak';

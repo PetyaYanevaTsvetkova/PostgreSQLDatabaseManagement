@@ -80,5 +80,13 @@ of the printing and typesetting industry.
  including versions of Lorem Ipsum.'
 WHERE customer_id = 4;
 
-BACKUP DATABASE databasename
-TO DISK = 'D:\Training\DB\SQL_Database management_data_types_constraints\backupDB';
+
+--Backup database:
+
+--through the pgAdmin:
+--right button on the base
+--choose Backup from the dropdown menu
+--click on the folder to
+--For the Filename put the filepath + the name of the file (for exampe: orders_management.sql)
+--Click on Backup button
+--The file is created in the folder with the specified path
