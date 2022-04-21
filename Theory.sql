@@ -123,11 +123,11 @@ DROP INDEX salary_index;
 --Columns that are frequently manipulated should not be indexed
 
 --NULL values
-  SELECT  ID, NAME, AGE, ADDRESS, SALARY
-   FROM COMPANY
-   WHERE SALARY IS NOT NULL
+SELECT  ID, NAME, AGE, ADDRESS, SALARY
+FROM COMPANY
+WHERE SALARY IS NOT NULL
    
-  CREATE TABLE COMPANY(
+CREATE TABLE COMPANY(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
    AGE            INT     NOT NULL,
@@ -137,7 +137,7 @@ DROP INDEX salary_index;
 
 --Constraints:
 --NOT NULL Constraint − Ensures that a column cannot have NULL value.
-  CREATE TABLE COMPANY(
+CREATE TABLE COMPANY(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
    AGE            INT     NOT NULL,
