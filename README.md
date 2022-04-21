@@ -1,7 +1,7 @@
-#Project's Title:
+# Project's Title:
 PostgreSQL: Database management, data types and constraints
 
-#Project Description:
+# Project Description:
 Theoretical examples and practical task for basic scripts for database management, data types and constraints
 Databases and tables
  * Create
@@ -18,25 +18,25 @@ Constraints: Primary key, Not Null, Unique, Check, Default, Index, Auto Incremen
 Comments in PosgreSQL
 Difference between Drop, Delete and Trunkate
 
-#Table of Contents:
+# Table of Contents:
 	Task.txt - description of the task
 	Theory.sql - theoretical examples of DDL
 	PracticalTask.sql - practical task woth DDL scripts
 	backupDB folder - backup of the database
 	README file
 
-#How to Install and Run the Project:
+# How to Install and Run the Project:
  * Docker needed
  * PosgreSQL client needed
  
-#How to Use the Project:
+# How to Use the Project:
 You need to execute the scripts in PostgreSQL client environment
 
-#Useful links:
+# Useful links:
 https://www.w3schools.com/sql/default.asp
 https://www.tutorialspoint.com/postgresql/index.htm
 
-#Add a License
+# Add a License
 no needed
 
 
