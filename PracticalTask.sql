@@ -8,7 +8,7 @@ name VARCHAR(255) NOT NULL,
 email VARCHAR(255) UNIQUE NOT NULL,
 phone CHAR(13) UNIQUE NOT NULL,
 CONSTRAINT chk_phone CHECK (phone not like '%[^0-9]%'),
-age SMALLINT DEFAULT 99 CHECK (age>=18) 
+age SMALLINT DEFAULT 99 CHECK (age>=18), 
 address VARCHAR(255),
 city VARCHAR(255),
 postal_code INT CHECK (postal_code>0),
@@ -86,7 +86,7 @@ WHERE customer_id = 4;
 --through the pgAdmin:
 --right button on the base
 --choose Backup from the dropdown menu
---click on the folder to
+--click on the folder to find the folder, you wanted to save the backup
 --For the Filename put the filepath + the name of the file (for exampe: orders_management.sql)
 --Click on Backup button
 --The file is created in the folder with the specified path
